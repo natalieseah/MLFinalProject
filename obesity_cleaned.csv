@@ -1,4 +1,4 @@
-Gender,Age,Height,Weight,Overweight_Family_History,High_Calorie_Consumption_Often,Vegetable_Consumption_Often,Num_Main_Meals_Daily,Eat_Between_Meals,Smoke_Regularly,Water_Drank_Daily,Calories_Monitored_Daily,Workout_Frequency,Time_Using_Technology_Daily,Alcohol_Consumption_Frequency,Means_of_Transportation,Obesity_Level
+Gender,Age,Height_in,Weight_lb,Overweight_Family_History,High_Calorie_Consumption_Often,Vegetable_Consumption_Often,Num_Main_Meals_Daily,Eat_Between_Meals,Smoke_Regularly,Water_Drank_Daily,Calories_Monitored_Daily,Workout_Frequency,Time_Using_Technology_Daily,Alcohol_Consumption_Frequency,Means_of_Transportation,Obesity_Level
 Female,21.0,63.779562000000006,141.09568,Yes,No,Sometimes,3,Sometimes,No,Between 1 and 2 liters,No,I do not exercise,3-5 hours,Never,Public Transportation,Normal Weight
 Female,21.0,59.842552000000005,123.45871999999999,Yes,No,Always,3,Sometimes,Yes,More than 2 liters,Yes,4 to 5 days a week,0-2 hours,Sometimes,Public Transportation,Normal Weight
 Male,23.0,70.86618,169.75573999999997,Yes,No,Sometimes,3,Sometimes,No,Between 1 and 2 liters,No,3 to 4 days a week,3-5 hours,Frequently,Public Transportation,Normal Weight
