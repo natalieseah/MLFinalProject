@@ -1,0 +1,1 @@
+This is the folder for developing and deploying the shiny app.
