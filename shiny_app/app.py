@@ -2,44 +2,57 @@ from shiny import App, ui, render, reactive
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv("MIC.csv")
+df = pd.read_csv("obesity.csv")
 
-target_col = "Obesity_Level"  # TODO: update (not this anymore)
+target_col = "Obesity_Level"
 predictor_cols = [c for c in df.columns if c != target_col]
 
 # ----- UI LAYOUT -----
 app_ui = ui.page_navbar(
 
     # README TAB
-    ui.nav(
+    ui.nav(  # TODO: update data source, predictor variables, and ML pipeline included as needed
         "README",
         ui.h2("Project Overview: Obesity Level Preditions from Nutritional and Physical Characteristics"),
         ui.markdown("""
-        ## Dataset
-        Using **obesity_cleaned.csv**, this project explores which factors 
-        predict obesity category.
+        ## Data Source
+         
+        
+        ## Target Variable
+        Obesity level
+
+        ## Predictor Variables
+        -
 
         ## Goals
-        - Compare predictive models  
-        - Provide an interactive dashboard  
-        - Allow users to input predictor values and get predictions  
+        - Determine which nutritional, behavioral, and physical characteristics affect obesity level most
+        - Produce models to predict obesity based on these characteristics
 
-        ## Models Included
-        - **k-Nearest Neighbors (KNN)**  
-        - **k-Means Clustering** (unsupervised – provides cluster membership)  
-        - **Multinomial Logistic Regression**  
-        - **Multiple Linear Regression**  
+        ## Maching Learning Pipeline Implemented By This Aoo
+        1. Goal of Prediction: Predict obesity level (categorical)
+        2. Model Selection: Multiple Regression, Random Forest, Multinomial Logistic Regression, K-Nearest Neighbors
+        3. Loss Function Selection: Standard classification loss for each model
+        4. Model Training: Fit models on train split
+        5. Model Evaluation: 
+        6. Model Refinement: Adjust thresholds accordingly
+        
+        ## App Usage
+        1. See the Data preview tab
+        2. Choose a model from the Model tab
+        3. Adjust train/test split and other required thresholds
+        4. Click 'Run Model' to train and evaluate a prediction
+        5. Enter new values for predictors to predict probability using selected model
         """)
     ),
 
-    # DATA TAB ---------------------------------------------------
+    # DATA TAB
     ui.nav(
         "Data",
         ui.h3("Raw Dataset"),
         ui.output_data_frame("table")
     ),
 
-    # MODEL TAB --------------------------------------------------
+    # MODEL TAB
     ui.nav(
         "Modeling",
         ui.layout_sidebar(
