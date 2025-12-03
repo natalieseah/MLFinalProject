@@ -6,12 +6,22 @@ df = pd.read_csv("obesity.csv")
 
 target_col = "Obesity_Level"
 predictor_cols = [c for c in df.columns if c != target_col]
+numeric_predictors = [
+    c for c in predictor_cols
+    if pd.api.types.is_numeric_dtype(df[c])
+]
+
+...
+*[
+    ui.input_numeric(f"pred_{col}", col, float(df[col].mean()))
+    for col in numeric_predictors
+],
 
 # ----- UI LAYOUT -----
 app_ui = ui.page_navbar(
 
     # README TAB
-    ui.nav(  # TODO: update data source, predictor variables, and ML pipeline included as needed
+    ui.nav_panel(  # TODO: update data source, predictor variables, and ML pipeline included as needed
         "README",
         ui.h2("Project Overview: Obesity Level Preditions from Nutritional and Physical Characteristics"),
         ui.markdown("""
@@ -46,14 +56,14 @@ app_ui = ui.page_navbar(
     ),
 
     # DATA TAB
-    ui.nav(
+    ui.nav_panel(
         "Data",
         ui.h3("Raw Dataset"),
         ui.output_data_frame("table")
     ),
 
     # MODEL TAB
-    ui.nav(
+    ui.nav_panel(
         "Modeling",
         ui.layout_sidebar(
             ui.sidebar(
